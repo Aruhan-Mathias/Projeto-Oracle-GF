@@ -1,7 +1,8 @@
 package tela;
 
-import java.util.Scanner;
-import javax.swing.*;
+import javax.swing.JOptionPane;
+
+import util.Util;
 
 public class TelaMenu {
 	
@@ -10,11 +11,7 @@ public class TelaMenu {
 	}
 	
 	public static void escolherOpcao() {
-		  JFrame jFrame = new JFrame();
 		  
-		  TelaCliente telaCliente = new TelaCliente();
-		  
-		  Scanner opcaoEscolhida = new Scanner(System.in);
 		  System.out.println("=====================================");
 		  System.out.println("Escolha a opção: ");
 		  System.out.println("0 - Encerrar Programa. \n"
@@ -22,20 +19,20 @@ public class TelaMenu {
 				  + "2 - Criar Ordem de Serviço (cliente já cadastrado).");
 		  		  
 		  System.out.println("=====================================");
-		  int opcao = opcaoEscolhida.nextInt();
+		  int opcao = Integer.parseInt(Util.sc.nextLine());
 		  switch (opcao) {
 		  	 case 0:
-		  		JOptionPane.showMessageDialog(jFrame, "Programa encerrado :)");
-		  		//Arrumar o break do console
+		  		JOptionPane.showMessageDialog(null, "Programa encerrado :)");
+		  		
 		       break;
 		     case 1:
-		    	 telaCliente.cadastrarCliente();
+		    	 TelaCliente.cadastrarCliente();
 		       break;
 		     case 2:
 		       System.out.println("Opção ainda não desenvolvida.");
 		       break;
 		     default:
-		    	 JOptionPane.showMessageDialog(jFrame, "Opção inválida... Insira uma opção válida");
+		    	 JOptionPane.showMessageDialog(null, "Opção inválida... Insira uma opção válida");
 		    	 escolherOpcao();
 		  }
 		

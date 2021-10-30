@@ -1,12 +1,9 @@
 package tela;
 
-import java.util.Scanner;
-
 import entidade.Funcionario;
-import tela.TelaMenu;
+import util.Util;
 
-public class TelaFuncionario {
-	static Scanner sc = new Scanner(System.in);
+public class TelaInicial {
 	
 	public static void main(String[] args) {
 		funcionarioResponsavel();		
@@ -18,10 +15,9 @@ public class TelaFuncionario {
 		System.out.println("====SISTEMA DE EMISSÃO DE NOTAS LOJA WL ASSISTENCIA TÉCNICA========");
 			
 		System.out.println("Digite o nome do funcionário: ");
-		funcionario.nome = sc.nextLine();
+		funcionario.nome = Util.sc.nextLine();
 		
-		TelaMenu telaMenu = new TelaMenu();
-		telaMenu.escolherOpcao();
+		TelaMenu.escolherOpcao();
 		
 	}
 	
