@@ -10,15 +10,15 @@ public class TelaInfoAparelho {
 		
 		Aparelho aparelho = new Aparelho();
 		
-		System.out.println("Agora Insira as informações do aparelho: ");
-		
-		System.out.print("Marca: ");
+		System.out.println("Agora Insira as informações do aparelho ");
+
+		System.out.println("Marca: ");
 		aparelho.marca =  Util.sc.nextLine();
 		
-		System.out.print("Modelo: ");
+		System.out.println("Modelo: ");
 		aparelho.modelo = Util.sc.nextLine();
 		
-		System.out.print("Estado Atual: ");
+		System.out.println("Estado Atual: ");
 		aparelho.estadoAtual = Util.sc.nextLine();
 			
 		  		  
