@@ -14,20 +14,77 @@ public class TelaCliente {
 	static List<Cliente> clientes = new ArrayList<>();
 	
 	public static Cliente cadastrarCliente() {
-		Cliente c = new Cliente();
+		Cliente cliente = new Cliente();
+		String telefoneTipoString;
 		
 		System.out.println("==============DADOS CLIENTE=================");
-		System.out.println("Digite o Nome Completo do Cliente: ");
-		c.nome = Util.sc.nextLine();
-		System.out.println("Digite o número para contato do Cliente: ");
-		c.telefone = Long.parseLong(Util.sc.nextLine());
-		c.rg = opcaoDeCadastroRg();
-		System.out.println("==============Cadastro com sucesso============== \n");
-		clientes.add(c);
 		
+		System.out.println("Digite o Nome Completo do Cliente: ");
+		cliente.nome = Util.sc.nextLine();
+		cliente.nome = checkNumber(cliente.nome, "Digite o Nome Completo do cliente: ");
+		
+		System.out.println("Digite o Número para contato do cliente: ");
+		telefoneTipoString = Util.sc.nextLine();
+		
+		cliente.telefone = checkLetters(telefoneTipoString, "Digite o Número para contato do cliente: ");		
+		
+		cliente.rg = opcaoDeCadastroRg();
+		System.out.println("==============Cadastro com sucesso============== \n");
+		clientes.add(cliente);
 		
 		TelaInfoAparelho.infomacoesDoAparelho();
-		return c;
+		return cliente;
+	}
+	
+	public static String checkNumber(String clienteNome, String msg) {
+				
+		if(clienteNome.matches("^\\d+$")) {
+			
+			while(clienteNome.matches("^\\d+$")) {
+				System.out.println("Preencha o campo apenas com LETRAS, tente novamente \n");
+				System.out.println(msg);
+				clienteNome = Util.sc.nextLine();
+			}
+							
+		}
+		
+		return clienteNome;
+		
+	}
+	
+	public static int checkLetters(String telefone, String msg) {
+		
+		
+		if(telefone.matches("[a-zA-Z]+")) {
+			
+			while(telefone.matches("[a-zA-Z]+")) {
+				System.out.println("Preencha o campo apenas com LETRAS, tente novamente \n");
+				System.out.println(msg);
+				telefone = Util.sc.nextLine();
+				System.out.println(telefone);
+			}
+			
+		}
+		
+		if(telefone.length() < 9) {
+			
+			while(telefone.length() < 9) {
+				System.out.println("Preencha o campo com ao menos 9 caracteres, tente novamente \n");
+				System.out.println(msg);
+				telefone = Util.sc.nextLine();
+			}
+			
+		}
+		
+	    
+		return Integer.parseInt(telefone);
+	    
+	}
+
+	public static boolean checkString(String str) {
+		
+	    return str.matches("[a-zA-Z]+");
+	    
 	}
 	
 	static int opcaoDeCadastroRg() {

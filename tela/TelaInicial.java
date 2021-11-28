@@ -6,10 +6,13 @@ import util.Util;
 public class TelaInicial {
 	
 	public static void main(String[] args) {
+		
 		funcionarioResponsavel();		
+		
 	}
 
 	public static void funcionarioResponsavel() {
+		
 		Funcionario funcionario = new Funcionario();
 		
 		System.out.println("====SISTEMA DE EMISSÃO DE NOTAS LOJA WL ASSISTENCIA TÉCNICA========");
@@ -23,7 +26,8 @@ public class TelaInicial {
 			
 			while(validaNomeDoFuncionario <= 2) {
 				System.out.println("Digite um nome com mais de 2 caracteres.");
-				funcionario.nome = Util.sc.nextLine();
+				funcionario.nome =  Util.sc.nextLine();
+				validaNomeDoFuncionario = funcionario.nome.length();
 			}
 			
 			TelaMenu.escolherOpcao();

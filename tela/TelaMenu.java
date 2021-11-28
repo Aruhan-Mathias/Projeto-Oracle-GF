@@ -33,32 +33,29 @@ public class TelaMenu {
 			
 				case 0:
 					 JOptionPane.showMessageDialog(null, "Programa encerrado :)");
-				break;
-				
-				case 1:
+					 return;
+			case 1:
 					TelaCliente.cadastrarCliente();
 				break;
 				
 				case 2:
 					System.out.println("Opção ainda não desenvolvida.");
 				break;
-				
 				default:
 					JOptionPane.showMessageDialog(null, "Opção inválida... Insira uma opção válida");
 					escolherOpcao();
+				break;
 			}
 			  
 		  }else {
 			  
 			  while(!opcaoSelecionada.matches("^\\d+$")) {
-				  
-				  System.out.println("//Neste campo é permitido APENAS Letras. Tente Novamente \n");
+				  System.out.println("//Neste campo é permitido apenas NÚMEROS. Tente Novamente \n");
 				  escolherOpcao();
-				  
 			  }
 			  
-		  }		  
-
-	}
+		  }	
+		
+	 }
 	
 }
